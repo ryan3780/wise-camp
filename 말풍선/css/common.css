@@ -1,0 +1,126 @@
+#fixed-book{
+    transform: scale(0.65);
+    transform-origin: top left;
+}
+#btn{
+    margin-top: 20px;
+}
+#frame{
+    margin-bottom: 10px;
+}
+
+/* h2{
+    display: inline;
+    margin-left: 100px;
+} */
+
+h2.m{
+    display: inline;
+    background-color: aquamarine;
+    margin-left: 100px;
+}
+
+h2.a{
+    display: inline;
+    background-color: yellow;
+    margin-left: 100px;
+}
+
+#test{
+    height: 100px;
+    width: 100px;
+}
+
+.book_info > div{
+    margin-bottom: 10px;
+}
+
+#book > div{
+    margin-bottom: 10px;
+ 
+}
+
+input{
+    width: 250px;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    list-style: none;
+    text-align: left;
+}
+p {
+    /* margin: 0 0 10px; */
+    margin: 0;
+}
+
+button, input[type="radio"]+label, input[type="range"], input[type="text"], a, div, li {
+    outline: 0 !important;
+}
+
+button {
+    border: none;
+    outline: 0;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    line-height: 1.42857143;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    overflow: hidden;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+    -webkit-tap-highlight-color : transparent;
+}
+
+body.fileDragHover {
+-webkit-box-shadow: inset 0px 0px 32px 0px blue;
+-moz-box-shadow: inset 0px 0px 32px 0px blue;
+box-shadow: inset 0px 0px 32px 0px blue;
+}
+
+iframe {
+    border-width: 0;
+}

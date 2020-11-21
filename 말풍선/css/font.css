@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo');
+@import url('https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css');
+@import url('https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css'); 
+
+
+@font-face{
+    font-family: Binggrae;
+    src: url('../fonts/Binggrae.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: Binggrae_Bold;
+    src: url('../fonts/Binggrae-Bold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: godoMaum;
+    src: url('../fonts/godoMaum.ttf');
+    font-weight: normal;
+    font-style: normal;
+} 
+
+
+/* 배포용 */
+@font-face{
+    font-family: Binggrae;
+    src: url('../../../../../../html/font/Binggrae.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: Binggrae_Bold;
+    src: url('../../../../../../html/font/Binggrae-Bold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: godoMaum;
+    src: url('../../../../../../html/font/godoMaum.woff');
+    font-weight: normal;
+    font-style: normal;
+}

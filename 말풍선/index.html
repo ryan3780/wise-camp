@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <title>미리보기용</title>
+</head>
+<body style="overflow: auto;">
+</div>
+<div id="btn">
+    <button id="test_m" onclick="testM()" style="background-color: aquamarine;">M형에서 보기</button>
+    <button id="test_a" onclick="testA()" style="background-color: yellow;">A형에서 보기</button>
+    <!-- <button id="junior" onclick="junior()">저학년으로 변경</button>
+    <button id="middle" onclick="middle()">중학년으로 변경</button>
+    <button id="senior" onclick="senior()">고학년으로 변경</button> -->
+</div>
+    <div id="frame"></div>
+    <div style="display: flex;">
+    <div class="book_info">
+    <div>
+        제목 : 
+        <input id="title" onkeyup="insertTitle()" value="책 제목"/>
+        <button onclick="copyTitle()">copy</button>
+        <h2 id="device"></h2>
+    </div>
+    <div>
+        몇 번째 이야기 :
+        <input id="idx" onkeyup="insertIdx()" style="width: 50px;"/>
+        <button onclick="copyIdx()">copy</button>
+    </div>
+<div id="book">
+        <div>
+            교과 1 :
+            <input id="textBook" onkeyup="insertTextBook1()" value="교과" />
+            <button onclick="copyTextBook()">copy</button>
+            <button id="plus" onclick="insertBookNLink()"> + </button>
+            <button id="minus" onclick="removeBookNLink()"> - </button>
+        </div>
+        <div>
+            연계 1 :
+            <input id="textBook_link" onkeyup="textBook_link1()" value="연계" />
+            <button onclick="copyTextBook_link()">copy</button>
+        </div>
+</div>
+    <!-- <div>
+        교과 2 :
+        <input id="textBook2" onkeyup="insertTextBook2()" value="교과" />
+    </div>
+    <div>
+        연계 2 :
+        <input id="textBook_link2" onkeyup="textBook_link2()" value="연계" />
+    </div>
+    <div>
+        교과 3 :
+        <input id="textBook3" onkeyup="insertTextBook3()" value="교과" />
+    </div>
+    <div>
+        연계 3 :
+        <input id="textBook_link3" onkeyup="textBook_link3()" value="연계" />
+    </div> -->
+
+
+    말풍선 :
+    <input id="balloon_text" onkeyup="balloon_text()" value="말풍선" style="width: 800px; height: 28px; word-break:break-all;" />
+    <button onclick="copyBalloon_text()">copy</button>
+
+</div>
+    
+</body>
+<script>
+    //전역변수로 선언
+    // console = {};
+    // console.log = function(){};
+    // console.warn = function(){};
+    // console.error = function(){};
+
+    function copyTitle(){
+        const title = document.getElementById('title');
+        title.select();
+        document.execCommand("Copy");
+    };
+
+    function copyIdx(){
+        const idx = document.getElementById('idx');
+        idx.select();
+        document.execCommand("Copy");
+    };
+
+    function copyTextBook(){
+        const textBook = document.getElementById('textBook');
+        textBook.select();
+        document.execCommand("Copy");
+    };
+
+    function copyTextBook_link(){
+        const textBook_link = document.getElementById('textBook_link');
+        textBook_link.select();
+        document.execCommand("Copy");
+    };
+
+    function copyBalloon_text(){
+        const balloon_text = document.getElementById('balloon_text');
+        balloon_text.select();
+        document.execCommand("Copy");
+    };
+
+    function copyTextBook2(){
+        const textBook2 = document.getElementById('textBook2');
+        textBook2.select();
+        document.execCommand("Copy");
+    };
+
+    function copyTextBook_link2(){
+        const textBook_link2 = document.getElementById('textBook_link2');
+        textBook_link2.select();
+        document.execCommand("Copy");
+    };
+
+    function copyTextBook3(){
+        const textBook3 = document.getElementById('textBook3');
+        textBook3.select();
+        document.execCommand("Copy");
+    };
+
+    function copyTextBook_link3(){
+        const textBook_link3 = document.getElementById('textBook_link3');
+        textBook_link3.select();
+        document.execCommand("Copy");
+    };
+
+    let num = 2;
+    function insertBookNLink(){
+        
+        if(num === 2){
+           
+        const div = document.createElement('div');
+        div.className = "curr_link";
+        frames['fixed-book'].contentDocument.getElementById('subject').append(div);
+
+        const p = document.createElement('p');
+        p.className = 'link';
+        frames['fixed-book'].contentDocument.getElementsByClassName('curr_link')[1].append(p);
+
+        const span = document.createElement('span');
+        span.innerText = '교과';
+        frames['fixed-book'].contentDocument.getElementsByClassName('link')[1].append(span);
+
+        
+
+        const p2 = document.createElement('p');
+        p2.className = 'chapter';
+        p2.innerText = '연계';
+        frames['fixed-book'].contentDocument.getElementsByClassName('curr_link')[1].append(p2);
+
+        const book = document.createElement('div');
+        book.id = `book${num}`;
+        book.innerText = `교과 ${num} : `;
+        document.getElementById('book').append(book);
+        const textbook = document.createElement('input');
+        textbook.id = `textBook${num}`;
+        textbook.value = `교과`;
+        textbook.onkeyup = insertTextBook2;
+        document.getElementById(`book${num}`).append(textbook);
+
+        const textBook_btn = document.createElement('button');
+        textBook_btn.onclick = copyTextBook2;
+        textBook_btn.innerText = `copy`;
+        textBook_btn.style.marginLeft = '6px';
+        document.getElementById('book2').append(textBook_btn);
+        
+      
+        const link = document.createElement('div');
+        link.id = `link${num}`;
+        link.innerText = `연계 ${num} : `;
+        document.getElementById('book').append(link);
+        const linkbook = document.createElement('input');
+        linkbook.id = `textBook_link${num}`;
+        linkbook.value = `연계`;
+        linkbook.onkeyup = textBook_link2;
+        document.getElementById(link.id).append(linkbook);
+
+        const textBook_link_btn = document.createElement('button');
+        textBook_link_btn.onclick = copyTextBook_link2;
+        textBook_link_btn.innerText = `copy`;
+        textBook_link_btn.style.marginLeft = '6px';
+        document.getElementById('link2').append(textBook_link_btn);
+
+
+        frames['fixed-book'].contentDocument.getElementById('subject').className = 'len2';
+        num++;
+        }else{
+        if(num !== 3) return;
+        const div = document.createElement('div');
+        div.className = "curr_link";
+        frames['fixed-book'].contentDocument.getElementById('subject').append(div);
+
+        const p = document.createElement('p');
+        p.className = 'link';
+        frames['fixed-book'].contentDocument.getElementsByClassName('curr_link')[2].append(p);
+
+        const span = document.createElement('span');
+        span.innerText = '교과';
+        frames['fixed-book'].contentDocument.getElementsByClassName('link')[2].append(span);
+
+        const p2 = document.createElement('p');
+        p2.className = 'chapter';
+        p2.innerText = '연계';
+        frames['fixed-book'].contentDocument.getElementsByClassName('curr_link')[2].append(p2);
+
+        const book = document.createElement('div');
+        book.id = `book${num}`;
+        book.innerText = `교과 ${num} : `;
+        document.getElementById('book').append(book);
+        const textbook = document.createElement('input');
+        textbook.id = `textBook${num}`;
+        textbook.value = `교과`;
+        textbook.onkeyup = insertTextBook3;
+        document.getElementById(`book${num}`).append(textbook);
+
+        const textBook_btn = document.createElement('button');
+        textBook_btn.onclick = copyTextBook3;
+        textBook_btn.innerText = `copy`;
+        textBook_btn.style.marginLeft = '6px';
+        document.getElementById('book3').append(textBook_btn);
+      
+        const link = document.createElement('div');
+        link.id = `link${num}`;
+        link.innerText = `연계 ${num} : `;
+        document.getElementById('book').append(link);
+        const linkbook = document.createElement('input');
+        linkbook.id = `textBook_link${num}`;
+        linkbook.value = `연계`;
+        linkbook.onkeyup = textBook_link3;
+        document.getElementById(link.id).append(linkbook);
+
+        const textBook_link_btn = document.createElement('button');
+        textBook_link_btn.onclick = copyTextBook_link3;
+        textBook_link_btn.innerText = `copy`;
+        textBook_link_btn.style.marginLeft = '6px';
+        document.getElementById('link3').append(textBook_link_btn);
+
+        frames['fixed-book'].contentDocument.getElementById('subject').className = 'len3';
+        num++;
+        }
+
+    }
+
+    function removeBookNLink(){
+        const book3 = document.getElementById('book3');
+        const link3 = document.getElementById('link3');
+        const cur3 = frames['fixed-book'].contentDocument.getElementsByClassName('curr_link')[2];
+
+        const book2 = document.getElementById('book2');
+        const link2 = document.getElementById('link2');
+        const cur2 = frames['fixed-book'].contentDocument.getElementsByClassName('curr_link')[1];
+
+       
+        if(book3){
+            book3.remove();
+            link3.remove();
+            frames['fixed-book'].contentDocument.getElementById('subject').removeChild(cur3)
+            frames['fixed-book'].contentDocument.getElementById('subject').className = 'len2';
+            num--;
+        }else{
+            if(book2){
+            book2.remove();
+            link2.remove();
+            frames['fixed-book'].contentDocument.getElementById('subject').removeChild(cur2)
+            frames['fixed-book'].contentDocument.getElementById('subject').className = '';
+            num--;
+           }
+        }
+          
+    }
+
+    setInterval(function(){
+        // console = {};
+        // console.log = function(){};
+        // console.warn = function(){};
+        // console.error = function(){};
+
+
+        const book3 = document.getElementById('textBook3');
+        const link3 = document.getElementById('textBook_link3');
+        const book2 = document.getElementById('textBook2');
+        const link2 = document.getElementById('textBook_link2');
+        const book = document.getElementById('textBook');
+        const link = document.getElementById('textBook_link');
+
+        // console.log(link2.value)
+
+        if(book3 && link3 && book3.value === '' && link3.value === '' && book2.value !== '' && link2.value !== ''){
+            frames['fixed-book'].contentDocument.getElementById('subject').className = 'len2';
+       
+        }
+        if(book3 && link3 && book3.value === '' && link3.value === '' && book2.value === '' && link2.value === ''){
+            frames['fixed-book'].contentDocument.getElementById('subject').className = '';
+
+        }
+        if(book3 && link3 && book3.value !== '' && link3.value !== '' && book2.value !== '' && link2.value !== ''){
+            frames['fixed-book'].contentDocument.getElementById('subject').className = 'len3';
+            if(book2.disabled === true && link2.disabled === true){
+                book3.disabled = true;
+                link3.disabled = true;
+            }else{
+                book3.disabled = false;
+                link3.disabled = false;
+            }
+
+        }
+        if(book3 && (book2.value === '' && link2.value === '') || (book2.disabled === true && link2.disabled === true)){
+            // book3.disabled = true;
+            // link3.disabled = true;
+            frames['fixed-book'].contentDocument.getElementById('subject').className = 'len2';
+            if(book2.value !=='' && link2.value !=='' && book2.disabled === false  && link2.disabled === false){
+                book3.disabled = false;
+                link3.disabled = false;
+                frames['fixed-book'].contentDocument.getElementById('subject').className = 'len3';
+            }else if(book2.value ==='' && link2.value ==='' || book2.disabled === true  && link2.disabled === true){
+                book3.disabled = true;
+                link3.disabled = true;
+            }
+        }
+
+        if(book2 && book.value ==='' && link.value === ''){
+            book2.disabled = true;
+            link2.disabled = true;
+            frames['fixed-book'].contentDocument.getElementById('subject').className = '';
+        }else if(book2 && book.value !== '' && link.value !== ''){
+           
+                book2.disabled = false;
+                link2.disabled = false;
+                // frames['fixed-book'].contentDocument.getElementById('subject').className = 'len2';
+            
+        }
+        
+    },1000)
+    // 학년 변경하기
+    function setGrade() {
+        if(document.getElementById('junior')){
+            return;
+        }else{
+            const junior_btn = document.createElement("button");
+            junior_btn.innerText = '저학년으로 변경';
+            junior_btn.id = 'junior';
+            junior_btn.onclick = junior;
+            junior_btn.style.marginRight = '10px';
+            junior_btn.style.backgroundColor = 'pink';
+            document.getElementById('btn').append(junior_btn);
+
+            const middle_btn = document.createElement("button");
+            middle_btn.innerText ='중학년으로 변경';
+            middle_btn.id = 'middle';
+            middle_btn.onclick = middle;
+            middle_btn.style.marginRight = '10px';
+            middle_btn.style.backgroundColor = 'cornsilk';
+            document.getElementById('btn').append(middle_btn);
+
+            const senior_btn = document.createElement("button");
+            senior_btn.innerText ='고학년으로 변경';
+            senior_btn.id = 'senior';
+            senior_btn.onclick = senior;
+            senior_btn.style.backgroundColor = 'darkgray';
+            document.getElementById('btn').append(senior_btn);
+        }
+    }
+    
+    // iframe으로 불러오기 M형
+    let already = false;
+    function testM(){
+        if(already){
+            document.getElementById('fixed-book').style.width = '1280px';
+            document.getElementById('fixed-book').style.height = '752px';
+            document.getElementById('fixed-book').style.transform = 'scale(0.65)';
+            document.getElementById('frame').style.marginBottom = '10px';
+            document.getElementById('frame').style.width = '1280px';
+            document.getElementById('frame').style.height = '500px';
+            document.getElementById('device').innerText = '현재 M형을 보고 계십니다.'
+            document.getElementById('device').className = 'm';
+            setGrade();
+        }else{
+            document.getElementById('frame').innerHTML = '<iframe id="fixed-book" src="device.html" style="width: 1280px; height: 752px;"></iframe>';
+            document.getElementById('frame').style.width = '1280px';
+            document.getElementById('frame').style.height = '500px';
+            document.getElementById('frame').style.marginBottom = '10px';
+            document.getElementById('device').innerText = '현재 M형을 보고 계십니다.'
+            document.getElementById('device').className = 'm';
+            setGrade();
+            already = true;
+        }
+        
+        
+    };
+ 
+    // iframe으로 불러오기 A형
+    function testA(){
+        if(already){
+            document.getElementById('fixed-book').style.width = '1280px';
+            document.getElementById('fixed-book').style.height = '800px';
+            document.getElementById('fixed-book').style.transform = 'scale(0.7)';
+            document.getElementById('frame').style.marginBottom = '80px';
+            document.getElementById('device').innerText = '현재 A형을 보고 계십니다.'
+            document.getElementById('device').className = 'a';
+            // document.getElementById('frame').style.width = '1280px';
+            // document.getElementById('frame').style.height = '548px';
+            setGrade();
+        }else{
+            document.getElementById('frame').innerHTML = '<iframe id="fixed-book" src="device.html" style="width: 1280px; height: 800px;"></iframe>';
+            document.getElementById('fixed-book').style.transform = 'scale(0.7)';
+            document.getElementById('frame').style.marginBottom = '80px';
+            document.getElementById('frame').style.width = '1280px';
+            document.getElementById('frame').style.height = '500px';
+            document.getElementById('device').innerText = '현재 A형을 보고 계십니다.';
+            document.getElementById('device').className = 'a';
+            // document.getElementById('frame').style.width = '1280px';
+            // document.getElementById('frame').style.height = '548px';
+            setGrade();
+            already = true;
+        }
+       
+       
+    };
+
+    // junior로 변경
+    function junior(){
+        frames['fixed-book'].contentDocument.getElementById('contents').className = 'junior';
+        frames['fixed-book'].contentDocument.getElementById('book_opening').className = 'on_junior opacity active';
+    }
+    // middle로 변경
+    function middle(){
+        frames['fixed-book'].contentDocument.getElementById('contents').className = 'middle';
+        frames['fixed-book'].contentDocument.getElementById('book_opening').className = 'on_middle opacity active';
+    }
+
+    // senior로 변경
+    function senior(){
+        frames['fixed-book'].contentDocument.getElementById('contents').className = 'senior';
+        frames['fixed-book'].contentDocument.getElementById('book_opening').className = 'on_senior opacity active';
+    }
+
+  
+    // 제목 변경
+    function insertTitle(){
+        const title = document.getElementById('title').value;
+        frames['fixed-book'].contentDocument.getElementById('title').innerHTML = title;
+    };
+    // 몇 번째 이야기인지 변경
+    function insertIdx(){
+        let idx = document.getElementById('idx').value;
+        
+        switch(idx){
+               
+                case '2':
+                    frames['fixed-book'].contentDocument.getElementById('nth_story').className = 'active';
+                    frames['fixed-book'].contentDocument.getElementById('nth_story').innerHTML = '두 번째 이야기';
+                    break;
+                case '3':
+                    frames['fixed-book'].contentDocument.getElementById('nth_story').className = 'active';
+                    frames['fixed-book'].contentDocument.getElementById('nth_story').innerHTML = '세 번째 이야기';
+                    break;
+                default:
+                    frames['fixed-book'].contentDocument.getElementById('nth_story').className = '';
+                    frames['fixed-book'].contentDocument.getElementById('nth_story').innerHTML = '';
+                    break;
+        }
+    };
+
+    // 교과 연계 변경하기 총 3개까지
+    function insertTextBook1(){
+        const textBook = document.getElementById('textBook').value;
+        frames['fixed-book'].contentDocument.getElementsByClassName('link')[0].innerHTML = textBook;
+    };
+
+    function textBook_link1(){
+        const textBook_link = document.getElementById('textBook_link').value;
+        frames['fixed-book'].contentDocument.getElementsByClassName('chapter')[0].innerHTML = textBook_link;
+    };
+
+    function insertTextBook2(){
+        // console.log(document.getElementById('book2'))
+        const textBook2 = document.getElementById('textBook2').value;
+        frames['fixed-book'].contentDocument.getElementsByClassName('link')[1].innerHTML = textBook2;
+    };
+
+    function textBook_link2(){
+        const textBook_link2 = document.getElementById('textBook_link2').value;
+        frames['fixed-book'].contentDocument.getElementsByClassName('chapter')[1].innerHTML = textBook_link2;
+    };
+
+    function insertTextBook3(){
+        const textBook3 = document.getElementById('textBook3').value;
+        frames['fixed-book'].contentDocument.getElementsByClassName('link')[2].innerHTML = textBook3;
+    };
+
+    function textBook_link3(){
+        const textBook_link3 = document.getElementById('textBook_link3').value;
+        frames['fixed-book'].contentDocument.getElementsByClassName('chapter')[2].innerHTML = textBook_link3;
+    };
+  
+
+    // 말풍선 변경
+    function balloon_text(){
+        let balloon_text = document.getElementById('balloon_text').value;
+        if(balloon_text.length > 21){
+           
+        }
+        // console.dir(balloon_text)
+        const insert_balloon_text = setText(balloon_text);
+        frames['fixed-book'].contentDocument.getElementsByClassName('balloon_text')[0].innerHTML = insert_balloon_text;
+    };
+
+    var setText = function(text){
+            //단어 사이에 공백과 {}중괄호 단어 분리 패턴
+            var space_and_brace_pattern = new RegExp(/([^({|}|\s)]+)|({[^{|}]*})/gi);
+            //중괄호 포함 텍스트 찾는 패턴
+            var include_brace_pattern = new RegExp(/\{(.*?)\}/gi);
+            //중괄호만 찾는 패턴
+            var brace_pattern = new RegExp(/[\{\}]/gi);
+            var splitedText = text.split(space_and_brace_pattern);
+            var passedTextArr = [];
+            splitedText.map(function(item){
+                if(item !== "" && item !== undefined){
+                    if(include_brace_pattern.test(item)){
+                        passedTextArr.push('<span>' + item.replace(brace_pattern,'') +'</span>');
+                    }else{
+                        passedTextArr.push(item);
+                    }
+                }
+            });
+            var replaced_intro = passedTextArr.join('');
+            return replaced_intro;
+        };
+
+</script>
+</html>

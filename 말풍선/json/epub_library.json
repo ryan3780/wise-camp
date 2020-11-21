@@ -1,0 +1,46 @@
+[
+    {   
+        "grade": "junior",
+        "opversion": "op1",
+        "helptext": "h1",
+        "title": "까만 코다",
+        "readingaudio":"true",
+        "key": "1",
+        "author": "이루리",
+        "artist": "엠마누엘레 베르토시",
+        "publisher": "북극곰",
+        "classification": "창작동화",
+        "introduction": "북극에는 {아기 곰 코다}가 살고 있어. <br> {사냥꾼}이 엄마 곰과 코다에게 총을 겨눈 그 순간! <br> 놀라운 일이 있어났어~어떤 일인지 함께 알아보자!",
+        "bookintrovoice": "d_gl_01_04.mp3",
+        "textbooklink": [
+            {
+                "link" :"초4-2 사회",
+                "chapter" : "2. 필요한 것의 생산과 교환"
+            }
+           
+        ],
+        "details": [
+            {
+                "include": "교육청",
+                "contents": "경기도교육청 '독서력쑥쑥' 선정 도서"
+            },
+            {
+                "include": "교육청",
+                "contents": "서울시교육청 전자도서관 추천 도서"
+            },
+            {
+                "include": "기관",
+                "contents": "한국어린이교육문화원 <으뜸책> 선정 도서"
+            },
+            
+            {
+                "include": "기관",
+                "contents": "런던 국제도서전 KBBY 선정도서"
+            }
+        ],
+        "narr" : "Narr.mp3",
+        "dividedbooknumber" : "1",
+        "currentdivided":"1",
+        "closingment" : "양극화 논쟁의 첫번째 권을 다 읽었어! <br> 이제 양극화가 뭔지 알겠지? <br> 다음 이야기도 읽으러 가 볼까?"
+    }
+]

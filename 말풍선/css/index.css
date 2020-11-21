@@ -1,0 +1,586 @@
+/* 컨테이너에 필요한 css */
+#book_opening{
+    width: 100%;
+    opacity: 0;
+    touch-action: none;
+    pointer-events: none;
+    background-repeat : no-repeat;
+    z-index: -1;
+    /* transition: opacity 0.2s ease-out 2s; */
+}
+#book_opening.opacity{
+    opacity: 1;
+    z-index: 0;
+    touch-action: auto;
+    pointer-events: auto;
+}
+#book_opening.on_junior{
+    background-image : url("../images/library/bobo/junior_stand.gif");
+    transition: opacity 0.2s ease-out 2s;
+}
+/* #book_opening.on_junior.active{
+    background-image : url("../images/library/bobo/junior_speak.gif");
+} */
+#book_opening.on_junior.opacity{
+    transition: none;
+}
+#book_opening.on_middle{
+    background-image : url("../images/library/bobo/middle_stand.gif");
+}
+/* #book_opening.on_middle.active{
+    background-image : url("../images/library/bobo/middle_speak.gif");
+} */
+#book_opening.on_senior{
+    background-image : url("../images/library/bobo/senior_stand.gif");
+}
+/* #book_opening.on_senior.active{
+    background-image : url("../images/library/bobo/senior_speak.gif");
+} */
+
+/* 저학년 일때 info */
+#info{
+    position: absolute;
+    background-repeat : no-repeat;
+    z-index: -1;
+}
+#contents.junior #info{
+    width: 527px;
+    height: 732px;
+    bottom: -48px;
+    left: -527px;
+    /* left: 34px; */
+    background-position: center;
+    background-image : url("../images/library/book_info/junior.png");
+    left: 34px;
+    transform: rotateZ(0deg);
+
+    /* animation-name: info_junior;
+    animation-delay: 2.45s;
+    animation-duration: 0.75s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards; */
+}
+@keyframes info_junior {
+    0% {
+        left: -527px;
+        transform: rotateZ(3deg);
+    }
+    60% {
+        left: 34px;
+        transform: rotateZ(3deg);
+    }
+    80%{
+        left: 34px;
+        transform: rotateZ(6deg);
+    }
+    85%{
+        left: 34px;
+        transform: rotateZ(6deg);
+    }
+    100% {
+        left: 34px;
+        transform: rotateZ(0deg);
+    }
+}
+#contents.junior #info #title{
+    padding: 68px 65px 0 58px; 
+}
+#contents.junior #info #nth_story.active{
+    padding: 10px 65px 0 58px;
+}
+#contents.junior #info #subject{
+    padding: 65px 65px 0 58px;
+}
+#contents.junior #info #nth_story.active + #subject{
+    padding: 18px 65px 0 58px;
+}
+/* #contents.junior #info #recommand{
+    padding: 30px 65px 0 58px;
+}
+#contents.junior #info #bookInfo{
+    padding: 20px 65px 0 58px;
+    color: #efefef;
+} */
+
+/* 중학년 일때 info */
+#contents.middle #info {
+    background-image : url("../images/library/book_info/middle.png");
+    background-size: contain;
+    color : #444444;
+    height: 606px;
+    width: 493px;
+    /* left: 66px; */
+    /* bottom: 75px; */
+    left: 62px;
+    bottom: 80px;
+}
+#contents.middle #info #title{
+    padding: 50px 50px 0 45px;
+}
+#contents.middle #info #nth_story.active{
+    padding: 10px 50px 0 45px;
+}
+#contents.middle #info #subject{
+    padding: 70px 50px 0 45px;
+}
+#contents.middle #info #nth_story.active + #subject{
+    padding: 23px 50px 0 45px;
+}
+/* #contents.middle #info #recommand{
+    padding: 30px 50px 0 45px;
+}
+#contents.middle #info #bookInfo{
+    padding: 20px 50px 0 45px;
+    color: #efefef;
+} */
+
+
+/* 고학년 일때 info */
+#contents.senior #info {
+    background-image : url("../images/library/book_info/senior.png");
+    color : #444444;
+    bottom: 49px;
+    left: -58px;
+    width: 580px;
+    height: 661px;
+}
+#contents.senior #info #title{
+    padding: 80px 55px 0 140px; 
+}
+#contents.senior #info #nth_story.active{
+    padding: 10px 55px 0 140px; 
+}
+#contents.senior #info #subject{
+    padding: 65px 55px 0px 140px;
+}
+#contents.senior #info #nth_story.active + #subject{
+    padding: 18px 55px 0px 140px;
+}
+#contents.senior #info #title.long2 + #nth_story:not(.active) + #subject.len3{
+    padding: 50px 55px 0px 140px;
+}
+/* #contents.senior #info #recommand{
+    padding: 30px 65px 20px 140px;
+    bottom: 24vh;
+}
+#contents.senior #info #bookInfo{
+    padding: 20px 65px 0px 140px;
+    font-size: 15px;
+    bottom: 10vh;
+    color: #5a5a5a;
+} */
+
+
+/* 테스트용 3초 애니메이션 대체 */
+#intro_ani{
+    background-repeat : no-repeat;
+    background-size: auto;
+    height : 100%;
+    z-index : 20;
+    position : absolute;
+    width : 100%;
+    bottom : 0px;
+    display: none;
+}
+#intro_ani.active{
+    display: block;
+}
+#intro_ani.intro_bg_junior{
+    background-image : url("../images/library/intro_junior.gif");
+    background-position: left top;
+
+    animation-name: intro_junior;
+    animation-delay: 1.7s;
+    animation-duration: 0.75s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+@keyframes intro_junior {
+    0% {
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+#intro_ani.intro_bg_middle{
+    background-image : url("../images/library/intro_middle.gif");
+}
+#intro_ani.intro_bg_senior{
+    background-image : url("../images/library/intro_senior.gif");
+}
+
+
+/* info 공통 */
+#info{
+    color: #ffffff
+}
+#info > #title {
+    font-size: 40px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    /* margin-bottom: 26px;
+    margin-top: 40px; */
+    font-family: Binggrae_Bold;
+    margin: 0;
+    word-break: keep-all;
+}
+#info > #title.long1 {
+    font-size: 38px;
+}
+#info > #title.long2 {
+    font-size: 32px;
+}
+#info > #nth_story{
+    text-align: right;
+    font-size: 26px;
+    font-family: Binggrae_Bold;
+}
+#info > #subject{
+    font-size: 28px;
+    font-family: Binggrae_Bold;
+    letter-spacing: -0.4px;
+}
+#info > #subject.len2{
+    font-size: 27px;
+}
+#info > #subject.len3{
+    font-size: 25px;
+}
+#info > #subject > h2 {
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    text-align: left;
+    font-family: Binggrae_Bold;
+    margin: 0;
+    padding-bottom: 19px;
+    position: relative;
+}
+#info > #subject > h2:after{
+    content: '';
+    display: block;
+    width: 53px;
+    height: 36px;
+    position: absolute;
+    top: -6px;
+    left: 140px;
+}
+#contents.junior #info > #subject > h2:after{
+    background-image: url("../images/library/book_info/subject_junior.gif");
+}
+#contents.middle #info > #subject > h2:after{
+    background-image: url("../images/library/book_info/subject_middle.gif");
+}
+#contents.senior #info > #subject > h2:after{
+    background-image: url("../images/library/book_info/subject_senior.gif");
+}
+
+#info > #subject > .curr_link{
+    padding-bottom: 30px;
+    word-break: keep-all;
+}
+#info > #subject > .curr_link > p{
+    margin: 0;
+    margin-bottom: 5px;
+}
+#info > #subject > .curr_link > p:last-child{
+    margin-bottom: 0;
+}
+#info > #subject > .curr_link > .link{
+    position: relative;
+    display: inline-block;
+}
+#info > #subject > .curr_link > .link:before{
+    content: '';
+    display: block;
+    width: calc(100% + 20px);
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: -5px;
+    z-index: -1;
+}
+#contents.junior .curr_link > .link:before{
+    background-image: url("../images/library/book_info/junior_pen.png");
+}
+#contents.middle .curr_link > .link:before{
+    background-image: url("../images/library/book_info/middle_pen.png");
+}
+#contents.senior .curr_link > .link:before{
+    background-image: url("../images/library/book_info/senior_pen.png");
+}
+#contents.senior .curr_link:nth-child(4){
+    /* 고학년 3번째 교과연계 내용 */
+    padding-right: 45px;
+}
+
+/* 책정보 삭제 */
+#bookInfo{
+    display: none;
+    padding: 0 34px 20px 34px;
+    font-size: 15px;
+    font-family: Binggrae_Bold;
+}
+#bookInfo > p{
+    margin: 0;
+    padding-bottom: 10px;
+}
+#bookInfo > p:last-child{
+    padding-bottom: 0;
+}
+
+#contents.middle #info #bookInfo {
+    bottom: 20vh;
+}
+
+/* 교과수록 수상 등등 아이콘 조정 삭제*/
+#recommand{
+    display: none;
+    padding: 0 34px 20px 34px;
+    font-size: 18px;
+    font-family: Binggrae_Bold;
+}
+#contents.middle #info #recommand {
+    bottom: 38vh;
+}
+#recommand #curriculum > img {
+    background: url('../images/library/icons/book_icons.png') -11px -12px;
+    width:25px;
+    height:25px;
+}
+#recommand #awards > img {
+    background: url('../images/library/icons/book_icons.png') -11px -58px;
+    width:25px;
+    height:25px;
+}
+#recommand #selection > img {
+    background: url('../images/library/icons/book_icons.png') -59px -11px;
+    width:25px;
+    height:25px;
+}
+#recommand #recommendations > img {
+    background: url('../images/library/icons/book_icons.png') -58px -58px;
+    width:25px;
+    height:25px;
+    flex: 0 0 auto;    
+}
+#recommand > div {
+    display : flex;
+}
+#recommand > div > div{
+    margin-left : 10px;
+}
+.iconAndDetails{
+    display: flex;
+}
+.iconAndDetails > p{
+    margin-left : 10px;
+}
+
+/* intro */
+#contents.middle #intro{
+    margin-top: 165px;
+    margin-right : 29px;
+}
+#contents.senior #intro{
+    margin-top: 100px;
+    margin-right : 29px;
+}
+
+/* 말풍선 */
+#balloon{
+    position: absolute;
+    width: 648px;
+    height: 304px;
+    background-image: url('../images/library/bobo/balloon.png');
+    background-repeat: no-repeat;
+    font-family: Binggrae_Bold;
+    color: #565656;
+    text-align: center;
+    word-break: keep-all;
+    vertical-align: middle;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+}
+.balloon_text{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.balloon_text > span{
+    color : #24b4a6;
+}
+/* 저학년 말풍선 */
+#contents.junior #intro #balloon{
+    bottom: 383px;
+    right: 49px;
+    /* padding: 35px 25px 60px 25px; */
+    padding: 35px 25px 69px 25px;
+    font-size: 28px;
+}
+#contents.junior #intro #balloon.active{
+    opacity: 1;
+}
+/* 중학년 말풍선 */
+#contents.middle #intro #balloon{
+    right: 49px;
+    bottom: 413px;
+    /* padding: 35px 25px 60px 25px; */
+    padding: 35px 25px 69px 25px;
+    font-size: 28px;
+}
+#contents.middle #intro #balloon.active{
+    opacity: 1;
+}
+#contents.middle #intro #balloon.long{
+    font-size: 26px;
+}
+/* 고학년 말풍선 */
+#contents.senior #intro #balloon{
+    bottom: 379px;
+    right: 44px;
+    /* padding: 35px 19px 60px 19px; */
+    padding: 35px 19px 69px 19px;
+    font-size: 26px;
+    color: #565656;    
+}
+#contents.senior #intro #balloon.active{
+    opacity: 1;
+}
+
+/* 보보 */
+#boboAndBi{
+    display: flex;
+    align-items : center;
+}
+#bi{
+    text-align: center;
+    visibility: hidden;
+}
+.bobo{
+    display: none;
+    
+    /* width : 298px;
+    height : 387px; */
+    position: absolute;
+    right: 175px;
+    bottom: 1vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.bobo.junior{
+    width: 317px;
+    height: 411px;
+    background-image: url('../images/library/bobo/bobo_junior_stand.gif');
+    right: 162px;
+}
+.bobo.junior.active{
+    background-image: url('../images/library/bobo/bobo_junior_speak.gif');
+}
+.bobo.middle{
+    background-image: url('../images/library/bobo/bobo_middle_stand.gif');
+    width: 422px;
+    height: 424px;
+    right: 86px;
+    bottom: 74px;
+}
+.bobo.middle.active{
+    background-image: url('../images/library/bobo/bobo_middle_speak.gif');
+}
+.bobo.senior{
+    background-image: url('../images/library/bobo/bobo_senior_stand.gif');
+    width : 329px;
+    height : 384px;
+    right: 0px;
+    bottom: 0px;
+}
+.bobo.senior.active{
+    background-image: url('../images/library/bobo/bobo_senior_speak.gif');
+}
+
+
+#contents{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+#contents iframe{
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    visibility: hidden;
+    touch-action: none;
+    pointer-events: none;
+}
+#contents.junior iframe{
+    background-image : url("../images/library/bobo/junior_speak.gif");
+}
+#contents.middle iframe{
+    background-image : url("../images/library/bobo/middle_speak.gif");
+}
+#contents.senior iframe{
+    background-image : url("../images/library/bobo/senior_speak.gif");
+}
+.library {
+    width: 100%;
+    /* height: calc(100% - 55px); */
+    height: 100%;
+ 
+    position: absolute;
+    /* top: 55px; */
+}
+#app-container {
+    overflow-x: hidden;
+    display: table;
+    width: 100%;
+}
+
+/* 기기의 창 높이가 752일 경우 */
+@media (max-height: 799px){
+    #intro_ani.intro_bg_junior{
+        background-position: left -48px;
+    }
+    #intro_ani.intro_bg_middle{
+        background-position: left center;
+    }
+    #intro_ani.intro_bg_senior{
+        background-position: left bottom;
+    }
+
+    /*  */
+    #book_opening.on_junior{
+        background-position: left -48px;
+    }
+    #book_opening.on_middle{
+        background-position: left center;
+    }
+    #book_opening.on_senior{
+        background-position: bottom;
+    }
+    
+    /*  */
+    #contents.middle #info{
+        bottom: 56px;
+    }
+    #contents.middle #intro #balloon{
+        bottom: 388px;
+    }
+    .bobo.middle{
+        bottom: 50px;
+    }
+}
