@@ -32,10 +32,10 @@
    - 프로젝트 진행에 차질없게 진행
 
 ### 코드의 저작권이 없으므로 사진으로 대체하겠습니다.
-#### 책 열기
-<img src="https://user-images.githubusercontent.com/45477679/99868424-be0e5100-2c05-11eb-8c04-6764352f5824.png" />
-#### 책 읽기 
-<img src="https://user-images.githubusercontent.com/45477679/99868427-bf3f7e00-2c05-11eb-816b-9518369da38f.png" />
+#### 책 열기  
+<img src="https://user-images.githubusercontent.com/45477679/99868424-be0e5100-2c05-11eb-8c04-6764352f5824.png" />  
+#### 책 읽기   
+<img src="https://user-images.githubusercontent.com/45477679/99868427-bf3f7e00-2c05-11eb-816b-9518369da38f.png" />  
 <img src="https://user-images.githubusercontent.com/45477679/99868428-bfd81480-2c05-11eb-8e10-df003c2a008b.png" />
-### 미리보기 페이지
-<img src="https://user-images.githubusercontent.com/45477679/99868426-bea6e780-2c05-11eb-98ee-5001c1b9d34b.png" />
+### 미리보기 페이지  
+<img src="https://user-images.githubusercontent.com/45477679/99868426-bea6e780-2c05-11eb-98ee-5001c1b9d34b.png" />  
