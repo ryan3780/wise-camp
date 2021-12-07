@@ -37,5 +37,5 @@
 #### 책 읽기 
 <img src="https://user-images.githubusercontent.com/45477679/99868427-bf3f7e00-2c05-11eb-816b-9518369da38f.png" />
 <img src="https://user-images.githubusercontent.com/45477679/99868428-bfd81480-2c05-11eb-8e10-df003c2a008b.png" />
-#### 미리보기 페이지
+### 미리보기 페이지
 <img src="https://user-images.githubusercontent.com/45477679/99868426-bea6e780-2c05-11eb-98ee-5001c1b9d34b.png" />
